@@ -6,7 +6,10 @@
 
 <style>
     body {
-        background: #d7c4a3;
+        background-image: url('Fondo.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -22,7 +25,6 @@
         perspective: 1200px;
     }
 
-    /* Forro interior elegante */
     .forro {
         width: 94%;
         height: 94%;
@@ -41,11 +43,11 @@
         opacity: 0.55;
     }
 
-    /* Cuerpo del sobre */
     .cuerpo {
         width: 100%;
         height: 100%;
-        background: linear-gradient(145deg, #c9a57a, #9b7a54);
+        background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=60');
+        background-size: cover;
         border: 3px solid #5a3d22;
         border-radius: 8px;
         position: absolute;
@@ -55,18 +57,14 @@
             0 8px 18px rgba(0,0,0,0.35),
             0 0 12px rgba(212,175,55,0.4);
         border-image: linear-gradient(45deg, #d4af37, #8a6a46) 1;
-
-        /* NUEVA TEXTURA DEL SOBRE */
-        background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=60');
-        background-size: cover;
         opacity: 0.97;
     }
 
-    /* Tapa del sobre */
     .tapa {
         width: 100%;
         height: 100%;
-        background: linear-gradient(145deg, #d2b18a, #a5835c);
+        background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=60');
+        background-size: cover;
         border: 3px solid #5a3d22;
         border-bottom: none;
         border-radius: 8px 8px 0 0;
@@ -80,10 +78,6 @@
             0 6px 12px rgba(0,0,0,0.3),
             0 0 12px rgba(212,175,55,0.4);
         border-image: linear-gradient(45deg, #d4af37, #8a6a46) 1;
-
-        /* NUEVA TEXTURA DEL SOBRE */
-        background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=60');
-        background-size: cover;
         opacity: 0.98;
     }
 
@@ -91,7 +85,6 @@
         transform: rotateX(180deg);
     }
 
-    /* Sello de cera */
     .sello {
         width: 70px;
         height: 70px;
@@ -115,7 +108,6 @@
         transition: opacity 0.5s ease;
     }
 
-    /* Sello derritiéndose */
     .sello.desvanecer {
         animation: derretir 1.2s forwards ease-in;
     }
@@ -127,7 +119,6 @@
         100% { transform: scale(0.8, 0.1); opacity: 0; }
     }
 
-    /* Grabado */
     .grabado {
         position: absolute;
         bottom: 12px;
@@ -143,12 +134,10 @@
         z-index: 5;
     }
 
-    /* Carta estilo papel artesanal envejecido suave */
     .carta {
         width: 90%;
         height: 0;
         overflow: hidden;
-        background: #f3e4c8;
         border: 2px solid #8b6a3b;
         border-radius: 5px;
         padding: 0 15px;
@@ -159,11 +148,9 @@
         transition: opacity 1s ease, height 1.8s ease;
         font-size: 16px;
         line-height: 1.5;
-
-        /* NUEVA TEXTURA DEL PAPEL */
-        background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=60');
+        background-image: url('papel.jpg');
         background-size: cover;
-
+        background-position: center;
         box-shadow: 0 0 20px rgba(0,0,0,0.4);
         z-index: 1;
         white-space: pre-line;

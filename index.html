@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Sobre Romántico Antiguo</title>
+
+<style>
+    body {
+        background: #d7c4a3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "Georgia";
+    }
+
+    .sobre {
+        width: 360px;
+        height: 230px;
+        position: relative;
+        cursor: pointer;
+        perspective: 1200px;
+    }
+
+    /* Forro interior elegante */
+    .forro {
+        width: 94%;
+        height: 94%;
+        background: repeating-linear-gradient(
+            45deg,
+            #e8d8c3,
+            #e8d8c3 12px,
+            #d6c2a8 12px,
+            #d6c2a8 24px
+        );
+        border-radius: 6px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 0;
+        opacity: 0.55;
+    }
+
+    /* Cuerpo del sobre */
+    .cuerpo {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(145deg, #c9a57a, #9b7a54);
+        border: 3px solid #5a3d22;
+        border-radius: 8px;
+        position: absolute;
+        z-index: 1;
+        box-shadow:
+            inset 0 0 25px rgba(0,0,0,0.25),
+            0 8px 18px rgba(0,0,0,0.35),
+            0 0 12px rgba(212,175,55,0.4);
+        border-image: linear-gradient(45deg, #d4af37, #8a6a46) 1;
+        background-image: url('https://i.imgur.com/3ZQ3ZQF.jpg');
+        background-size: cover;
+        opacity: 0.97;
+    }
+
+    /* Tapa del sobre */
+    .tapa {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(145deg, #d2b18a, #a5835c);
+        border: 3px solid #5a3d22;
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+        position: absolute;
+        top: 0;
+        transform-origin: top;
+        transition: transform 1s ease;
+        z-index: 3;
+        box-shadow:
+            inset 0 0 20px rgba(0,0,0,0.25),
+            0 6px 12px rgba(0,0,0,0.3),
+            0 0 12px rgba(212,175,55,0.4);
+        border-image: linear-gradient(45deg, #d4af37, #8a6a46) 1;
+        background-image: url('https://i.imgur.com/3ZQ3ZQF.jpg');
+        background-size: cover;
+        opacity: 0.98;
+    }
+
+    .tapa.abierta {
+        transform: rotateX(180deg);
+    }
+
+    /* Sello de cera */
+    .sello {
+        width: 70px;
+        height: 70px;
+        background: #7a2e1c;
+        border-radius: 50%;
+        position: absolute;
+        top: 75px;
+        left: 140px;
+        z-index: 4;
+        box-shadow:
+            inset 0 0 10px rgba(0,0,0,0.4),
+            0 0 10px rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 38px;
+        font-weight: bold;
+        color: #f2d2b6;
+        font-family: "Times New Roman";
+        text-shadow: 0 0 3px rgba(0,0,0,0.6);
+        transition: opacity 0.5s ease;
+    }
+
+    /* Sello derritiéndose */
+    .sello.desvanecer {
+        animation: derretir 1.2s forwards ease-in;
+    }
+
+    @keyframes derretir {
+        0% { transform: scale(1); opacity: 1; }
+        40% { transform: scale(1.1, 0.8); }
+        70% { transform: scale(0.9, 0.4); opacity: 0.6; }
+        100% { transform: scale(0.8, 0.1); opacity: 0; }
+    }
+
+    /* Grabado */
+    .grabado {
+        position: absolute;
+        bottom: 12px;
+        right: 18px;
+        font-family: "Times New Roman";
+        font-size: 22px;
+        font-weight: bold;
+        color: rgba(90, 60, 30, 0.6);
+        text-shadow:
+            1px 1px 2px rgba(255,255,255,0.4),
+            -1px -1px 2px rgba(0,0,0,0.3);
+        letter-spacing: 2px;
+        z-index: 5;
+    }
+
+    /* Carta estilo papel artesanal envejecido suave */
+    .carta {
+        width: 90%;
+        height: 0;
+        overflow: hidden;
+        background: #f3e4c8;
+        border: 2px solid #8b6a3b;
+        border-radius: 5px;
+        padding: 0 15px;
+        position: absolute;
+        top: 20px;
+        left: 5%;
+        opacity: 0;
+        transition: opacity 1s ease, height 1.8s ease;
+        font-size: 16px;
+        line-height: 1.5;
+        background-image: url('https://i.imgur.com/9QeQw1S.jpg');
+        background-size: cover;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        z-index: 1;
+        white-space: pre-line;
+    }
+
+    .carta.visible {
+        opacity: 1;
+        height: 90%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        animation: sombra 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes sombra {
+        from { box-shadow: 0 0 20px rgba(0,0,0,0.4); }
+        to   { box-shadow: 0 0 35px rgba(0,0,0,0.6); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="sobre" id="sobre">
+    <div class="forro"></div>
+    <div class="tapa" id="tapa"></div>
+    <div class="cuerpo"></div>
+    <div class="sello" id="sello">E</div>
+    <div class="grabado">E & E</div>
+    <div class="carta" id="carta"></div>
+</div>
+
+<audio id="musica" src="musica.mp3"></audio>
+
+<script>
+class Carta {
+    constructor(texto) {
+        this.texto = texto;
+    }
+    mostrarEn(elemento) {
+        elemento.innerText = this.texto;
+    }
+}
+
+class Sobre {
+    constructor(tapa, sello, cartaElemento) {
+        this.tapa = tapa;
+        this.sello = sello;
+        this.cartaElemento = cartaElemento;
+        this.abierto = false;
+    }
+
+    abrir() {
+        if (!this.abierto) {
+            this.sello.classList.add("desvanecer");
+
+            setTimeout(() => {
+                this.tapa.classList.add("abierta");
+            }, 300);
+
+            setTimeout(() => {
+                this.cartaElemento.classList.add("visible");
+            }, 900);
+
+            const musica = document.getElementById("musica");
+            musica.volume = 0;
+            musica.play();
+
+            let vol = 0;
+            const fade = setInterval(() => {
+                if (vol < 0.4) {
+                    vol += 0.02;
+                    musica.volume = vol;
+                } else {
+                    clearInterval(fade);
+                }
+            }, 120);
+
+            this.abierto = true;
+        }
+    }
+}
+
+const carta = new Carta(
+`Mi amor:
+
+He estado pensando mucho en lo que pasó, y quiero decirte algo desde lo más honesto de mi corazón: lo siento. No por obligación, sino porque de verdad me pesa haberte lastimado. Tú eres una persona que merece paz, cariño y respeto, y esta vez no estuve a la altura de lo que tú vales.
+
+No quiero justificarme. Solo quiero que sepas que estoy aprendiendo, que estoy creciendo y que quiero ser alguien que sume a tu vida, no que te cause dolor. Me importas más de lo que a veces sé expresar, y por eso mismo quiero pedirte perdón con humildad.
+
+Si tú me lo permites, quiero hablar contigo con calma, escucharte y reparar lo que dañé. No quiero perder lo que tenemos, porque lo que siento por ti es real y profundo.
+
+Gracias por tu paciencia, por tu luz y por ser tú.
+Te quiero más de lo que imaginas.
+
+Con cariño,
+Emilio`
+);
+
+const cartaElemento = document.getElementById("carta");
+carta.mostrarEn(cartaElemento);
+
+const sobre = new Sobre(
+    document.getElementById("tapa"),
+    document.getElementById("sello"),
+    cartaElemento
+);
+
+document.getElementById("sobre").addEventListener("click", () => {
+    sobre.abrir();
+});
+</script>
+
+</body>
+</html>

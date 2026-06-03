@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Sobre Romántico Antiguo</title>
+<title>Carta para Esli</title>
 
 <style>
     body {
@@ -18,11 +18,11 @@
     }
 
     .sobre {
-        width: 360px;
-        height: 230px;
+        width: 480px;
+        height: 320px;
         position: relative;
         cursor: pointer;
-        perspective: 1200px;
+        perspective: 1400px;
     }
 
     .forro {
@@ -37,8 +37,8 @@
         );
         border-radius: 6px;
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 12px;
+        left: 12px;
         z-index: 0;
         opacity: 0.55;
     }
@@ -46,10 +46,11 @@
     .cuerpo {
         width: 100%;
         height: 100%;
-        background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=60');
+        background-image: url('Sobre.png');
         background-size: cover;
+        background-position: center;
         border: 3px solid #5a3d22;
-        border-radius: 8px;
+        border-radius: 10px;
         position: absolute;
         z-index: 1;
         box-shadow:
@@ -63,11 +64,12 @@
     .tapa {
         width: 100%;
         height: 100%;
-        background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=60');
+        background-image: url('Sobre.png');
         background-size: cover;
+        background-position: center;
         border: 3px solid #5a3d22;
         border-bottom: none;
-        border-radius: 8px 8px 0 0;
+        border-radius: 10px 10px 0 0;
         position: absolute;
         top: 0;
         transform-origin: top;
@@ -86,13 +88,13 @@
     }
 
     .sello {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
         background: #7a2e1c;
         border-radius: 50%;
         position: absolute;
-        top: 75px;
-        left: 140px;
+        top: 105px;
+        left: 195px;
         z-index: 4;
         box-shadow:
             inset 0 0 10px rgba(0,0,0,0.4),
@@ -100,7 +102,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 38px;
+        font-size: 48px;
         font-weight: bold;
         color: #f2d2b6;
         font-family: "Times New Roman";
@@ -121,10 +123,10 @@
 
     .grabado {
         position: absolute;
-        bottom: 12px;
-        right: 18px;
+        bottom: 14px;
+        right: 22px;
         font-family: "Times New Roman";
-        font-size: 22px;
+        font-size: 28px;
         font-weight: bold;
         color: rgba(90, 60, 30, 0.6);
         text-shadow:
@@ -135,32 +137,46 @@
     }
 
     .carta {
-        width: 90%;
+        width: 92%;
         height: 0;
         overflow: hidden;
         border: 2px solid #8b6a3b;
-        border-radius: 5px;
-        padding: 0 15px;
+        border-radius: 8px;
+        padding: 0 20px;
         position: absolute;
-        top: 20px;
-        left: 5%;
+        top: 25px;
+        left: 4%;
         opacity: 0;
         transition: opacity 1s ease, height 1.8s ease;
-        font-size: 16px;
-        line-height: 1.5;
+        font-size: 20px;
+        line-height: 1.6;
         background-image: url('papel.jpg');
         background-size: cover;
         background-position: center;
         box-shadow: 0 0 20px rgba(0,0,0,0.4);
         z-index: 1;
         white-space: pre-line;
+
+        /* SCROLL ACTIVADO */
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+
+    /* Scroll bonito en Chrome */
+    .carta::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .carta::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.4);
+        border-radius: 4px;
     }
 
     .carta.visible {
         opacity: 1;
-        height: 90%;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        height: 85%;
+        padding-top: 20px;
+        padding-bottom: 20px;
         animation: sombra 2s ease-in-out infinite alternate;
     }
 
@@ -236,13 +252,36 @@ class Sobre {
 const carta = new Carta(
 `Esli:
 
-He estado pensando mucho en lo que pasó, y quiero decirte algo desde lo más honesto de mi corazón: lo siento. No por obligación, sino porque de verdad me pesa haberte lastimado. Tú eres una persona que merece paz, cariño y respeto, y esta vez no estuve a la altura de lo que tú vales.
+He estado pensando mucho en lo que pasó,
+y quiero decirte algo desde lo más honesto de mi corazón:
 
-No quiero justificarme. Solo quiero que sepas que estoy aprendiendo, que estoy creciendo y que quiero ser alguien que sume a tu vida, no que te cause dolor. Me importas más de lo que a veces sé expresar, y por eso mismo quiero pedirte perdón con humildad.
+Lo siento.
 
-Si tú me lo permites, quiero hablar contigo con calma, escucharte y reparar lo que dañé. No quiero perder lo que tenemos, porque lo que siento por ti es real y profundo.
+No por obligación, sino porque de verdad me pesa haberte lastimado.
+Tú eres una persona que merece paz, cariño y respeto,
+y esta vez no estuve a la altura de lo que tú vales.
 
-Gracias por tu paciencia, por tu luz y por ser tú.
+No quiero justificarme.
+Solo quiero que sepas que estoy aprendiendo,
+que estoy creciendo
+y que quiero ser alguien que sume a tu vida,
+no que te cause dolor.
+
+Me importas más de lo que a veces sé expresar,
+y por eso mismo quiero pedirte perdón con humildad.
+
+Si tú me lo permites,
+quiero hablar contigo con calma,
+escucharte
+y reparar lo que dañé.
+
+No quiero perder lo que tenemos,
+porque lo que siento por ti es real y profundo.
+
+Gracias por tu paciencia,
+por tu luz
+y por ser tú.
+
 Te quiero más de lo que imaginas.
 
 Con cariño,
